@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N7x-po-BRj">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Xyt-Yh-ecv">
+            <objects>
+                <viewController id="N7x-po-BRj" customClass="ViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hTh-GN-Et4"/>
+                        <viewControllerLayoutGuide type="bottom" id="zZQ-k8-GlZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rwP-Cm-lwu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VtI-Bb-6yx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="UjR-vE-v4T">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="256"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=compact">
+                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="196"/>
+                                        </variation>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qAX-kv-mtS">
+                                        <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmC-iQ-8Ol">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
+                                                <state key="normal" title="Reset">
+                                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resetCounter:" destination="N7x-po-BRj" eventType="touchUpInside" id="KHY-aB-b7P"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ec7-cD-uf8">
+                                                <rect key="frame" x="300" y="0.0" width="300" height="100"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="42"/>
+                                                <state key="normal" title="Add"/>
+                                                <connections>
+                                                    <action selector="addCount:" destination="N7x-po-BRj" eventType="touchUpInside" id="aAb-TQ-aAa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="6Bz-VS-vU2"/>
+                                            <constraint firstAttribute="width" constant="180" id="QFm-ug-sFa"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="QFm-ug-sFa"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact" axis="vertical">
+                                            <mask key="constraints">
+                                                <exclude reference="6Bz-VS-vU2"/>
+                                                <include reference="QFm-ug-sFa"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact" axis="horizontal"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VtI-Bb-6yx" firstAttribute="leading" secondItem="rwP-Cm-lwu" secondAttribute="leadingMargin" constant="-20" id="3P2-U1-MHG"/>
+                            <constraint firstItem="VtI-Bb-6yx" firstAttribute="top" secondItem="rwP-Cm-lwu" secondAttribute="topMargin" id="C9E-x4-MiI"/>
+                            <constraint firstItem="zZQ-k8-GlZ" firstAttribute="top" secondItem="VtI-Bb-6yx" secondAttribute="bottom" id="N00-Lq-fCn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VtI-Bb-6yx" secondAttribute="trailing" constant="-20" id="qA3-xW-HEM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countLabel" destination="UjR-vE-v4T" id="dor-af-6DB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F06-Ri-0jT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="373" y="369"/>
+        </scene>
+    </scenes>
+</document>
