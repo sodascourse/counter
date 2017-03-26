@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Counter
 //
-//  Copyright 2016 Tien-Che Tsai
+//  Copyright 2016-2017 Tien-Che Tsai
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -21,18 +21,40 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var currentCount: Int = 0
+    @IBOutlet var buttons: [UIButton]!
+
+    var currentCount: Int = 0 {
+        didSet {
+            // Boundary checking
+            if self.currentCount < 0 {
+                self.currentCount = 0
+            }
+            // Update label
+            self.countLabel.text = "\(currentCount)"
+        }
+    }
 
     @IBOutlet weak var countLabel: UILabel!
 
-    @IBAction func addCount(sender: UIButton) {
-        self.currentCount += 1
-        self.countLabel.text = String(self.currentCount)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        for button in self.buttons {
+            button.layer.borderColor = button.tintColor.cgColor
+            button.layer.borderWidth = 1.0
+            button.layer.cornerRadius = 10
+        }
     }
 
-    @IBAction func resetCounter(sender: UIButton) {
+    @IBAction func increaseCounter(_ sender: UIButton) {
+        self.currentCount += 1
+    }
+
+    @IBAction func decreaseCounter(_ sender: UIButton) {
+        self.currentCount -= 1
+    }
+
+    @IBAction func resetCounter(_ sender: UIButton) {
         self.currentCount = 0
-        self.countLabel.text = "0"
     }
 
 }
